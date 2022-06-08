@@ -1,12 +1,13 @@
 package com.starsofocean.order.service;
 
-import com.starsofocean.order.clients.UserClient;
+import com.starsofocean.feign.clients.UserClient;
+import com.starsofocean.feign.pojo.User;
 import com.starsofocean.order.mapper.OrderMapper;
 import com.starsofocean.order.pojo.Order;
-import com.starsofocean.order.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+
+import javax.annotation.Resource;
 
 @Service
 public class OrderService {
@@ -15,7 +16,7 @@ public class OrderService {
     private OrderMapper orderMapper;
 //    @Autowired
 //    private RestTemplate restTemplate;
-    @Autowired
+    @Resource
     private UserClient userClient;
     public Order queryOrderById(Long orderId) {
         // 1.查询订单

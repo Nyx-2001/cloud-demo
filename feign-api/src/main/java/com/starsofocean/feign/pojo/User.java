@@ -1,4 +1,4 @@
-package com.starsofocean.order.pojo;
+package com.starsofocean.feign.pojo;
 
 import lombok.Data;
 

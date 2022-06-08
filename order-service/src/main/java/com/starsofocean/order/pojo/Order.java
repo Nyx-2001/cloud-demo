@@ -1,5 +1,6 @@
 package com.starsofocean.order.pojo;
 
+import com.starsofocean.feign.pojo.User;
 import lombok.Data;
 
 @Data

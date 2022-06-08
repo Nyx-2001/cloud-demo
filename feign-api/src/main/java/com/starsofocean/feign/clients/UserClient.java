@@ -1,6 +1,6 @@
-package com.starsofocean.order.clients;
+package com.starsofocean.feign.clients;
 
-import com.starsofocean.order.pojo.User;
+import com.starsofocean.feign.pojo.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
