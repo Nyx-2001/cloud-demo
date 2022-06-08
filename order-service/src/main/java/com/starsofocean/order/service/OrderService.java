@@ -1,5 +1,6 @@
 package com.starsofocean.order.service;
 
+import com.starsofocean.order.clients.UserClient;
 import com.starsofocean.order.mapper.OrderMapper;
 import com.starsofocean.order.pojo.Order;
 import com.starsofocean.order.pojo.User;
@@ -12,16 +13,26 @@ public class OrderService {
 
     @Autowired
     private OrderMapper orderMapper;
+//    @Autowired
+//    private RestTemplate restTemplate;
     @Autowired
-    private RestTemplate restTemplate;
-
+    private UserClient userClient;
     public Order queryOrderById(Long orderId) {
         // 1.查询订单
         Order order = orderMapper.findById(orderId);
-        String url="http://userservice/user/"+order.getUserId();
-        User user = restTemplate.getForObject(url, User.class);
+        User user = userClient.findById(order.getUserId());
         order.setUser(user);
         // 4.返回
         return order;
     }
+
+//    public Order queryOrderById(Long orderId) {
+//        // 1.查询订单
+//        Order order = orderMapper.findById(orderId);
+//        String url="http://userservice/user/"+order.getUserId();
+//        User user = restTemplate.getForObject(url, User.class);
+//        order.setUser(user);
+//        // 4.返回
+//        return order;
+//    }
 }

@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/cloud-order?allowPublicKeyRetrieval=true&useSSL=false
     username: root
-    password: 
+    password:
     driver-class-name: com.mysql.cj.jdbc.Driver
   application:
     name: orderservice
@@ -33,6 +33,11 @@ ribbon:
   eager-load:
     enabled: true
     clients: userservice
-userservice:
-  ribbon:
-    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule
+#userservice:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: FULL
