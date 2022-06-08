@@ -16,6 +16,8 @@ spring:
           uri: lb://orderservice
           predicates:
             - Path=/order/**
+      default-filters:
+        - AddRequestHeader=Truth, quiet so far!
 
 
 
